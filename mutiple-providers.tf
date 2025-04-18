@@ -11,13 +11,13 @@ provider "azurerm"{
 }
 
 
-resource "aws_instance" "server1"{
+resource "aws_instance" "server01"{
 
     ami="ami-0123456789abcdf0"
     instance_type="t2.micro"
 }
 
-resource "azure_virtual_machine" { 
+resource "azure_virtual_machine" "server02" { 
     name = "example-vm"
     location = "eastus"
     size = "Standard_A1"
