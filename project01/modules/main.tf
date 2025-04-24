@@ -1,0 +1,13 @@
+
+provider "aws" {
+  region = "us-east-1"
+}
+  
+# the module name can be anything, like here is ec2_instance
+
+module "ec2_instance" { 
+    source = "./modules/ec2-module"
+    ami_value = "ami-053b0d53c279acc90"
+    instance_type_value = "t2.micro"
+    subnet_id_value = "subnet-019ea91ed9b5252e7"
+}
