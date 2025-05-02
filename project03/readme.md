@@ -63,6 +63,11 @@ You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfva
     }
   */
 
+# Things in the lookup(inputMap dynamic, key string, __default dynamic) method                 
+                instance_type --> The value it has to lookup.   
+                terraform workspace --> If you are in the stage workspace or environment then this value will be resolved in stage, means 
+                                         depends on the environment you are in, in the excution it will resolve the "terraform.workspace" into that environment.
+                t2.micro --> It is the default. if there is no environment then it will automatically take default value that you are provided. 
 
                
   
