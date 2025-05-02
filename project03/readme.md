@@ -44,8 +44,8 @@ You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfva
   
  # You can use this map() and lookup() method to select one parameter based on the type of environment.
  --example--
-/*
-  variable "instance_type" { 
+
+ /* variable "instance_type" { 
     description = "value"
     type = map(string)
         default = {
@@ -54,18 +54,15 @@ You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfva
         "prod" = "t2xlarge"  # if the environment is prod then select the t2.xlarge instance
        }
   }
+ */
+
+  /*module "ec2_instance" {
+    source = "./modules/ec2_instance"
+    ami = var.ami
+    instance_type = lookup(instnace_type, terraform.workspace, t2.micro)
+    }
+  */
 
 
-  module "ec2_instance" {
-  source = "./modules/ec2_instance"
-  ami = var.ami
-  instance_type = lookup(instnace_type, terraform.workspace, t2.micro)
-  }
-*/
-# Things in the lookup(inputMap dynamic, key string, __default dynamic) method                 
-                instance_type --> The value it has to lookup.   
-                terraform workspace --> If you are in the stage workspace or environment then this value will be resolved in stage, means 
-                                         depends on the environment you are in, in the excution it will resolve the "terraform.workspace" into that environment.
-                t2.micro --> It is the default. if there is no environment then it will automatically take default value that you are provided. 
                
   
