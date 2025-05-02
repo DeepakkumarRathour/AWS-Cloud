@@ -38,8 +38,7 @@ To show the present working environment  cmds are below --
 When you run terraform apply the separate "terraform.tfstate" file will be created for separate environment, and this state file will not impact your other environments.
 
 
-You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfvars files to avoid overwritting the existing or main tfvars file, and these tfvars file you can create insdoe their respective
-environment.  
+You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfvars files to avoid overwritting the existing or main tfvars file, and these tfvars file you can create insdoe their respective environment.  
               ANOTHER METHOD IS THST.
  go to the main.tf  and use "map()" function or method.
   
