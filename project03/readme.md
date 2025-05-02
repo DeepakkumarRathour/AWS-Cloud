@@ -47,16 +47,16 @@ You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfva
  # You can use this map() and lookup() method to select one parameter based on the type of environment.
  /* --example--
 
-   variable "instance_type" { 
-    description = "value"
-    type = map(string)
+         variable "instance_type" { 
+        description = "value"
+        type = map(string)
         default = {
         "dev" = "t2.micro"     # if the environment is dev then select the t2.micro instance
         "stage" = "t2.medium" # if the environment is stage then select the t2.medium instance
         "prod" = "t2xlarge"  # if the environment is prod then select the t2.xlarge instance
        }
   }
-  */
+  
  
 
     module "ec2_instance" {
