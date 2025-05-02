@@ -45,9 +45,9 @@ You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfva
  go to the main.tf  and use "map()" function or method.
   
  # You can use this map() and lookup() method to select one parameter based on the type of environment.
- --example--
+ /* --example--
 
- /* variable "instance_type" { 
+   variable "instance_type" { 
     description = "value"
     type = map(string)
         default = {
@@ -56,9 +56,9 @@ You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfva
         "prod" = "t2xlarge"  # if the environment is prod then select the t2.xlarge instance
        }
   }
- */
+ 
 
-  /*module "ec2_instance" {
+    module "ec2_instance" {
     source = "./modules/ec2_instance"
     ami = var.ami
     instance_type = lookup(instnace_type, terraform.workspace, t2.micro)
