@@ -14,11 +14,11 @@ Terraform Workspace isolate their state, so if you run "terraform plan" Terrafor
 
 
 
-To excute terraform with a particular tfvars file -->
+# To excute terraform with a particular tfvars file -->
   --  terraform apply -var-file=stage.tfvars
 
 
-To create a new terraform workspace environment  
+# To create a new terraform workspace environment  
   terraform workspace new dev     --> 
                        It will create the new terraform environment as "dev".
                        It will create the folder named as "terraform.tfstate.d" and inside this folder all environment that you create will stored here.
@@ -26,12 +26,12 @@ To create a new terraform workspace environment
   terraform workspace new stage  --> create a new environment as stage inside the same folder named as "terraform.tfstate.d".
   terraform wirkspace new prod  --> create new environment as prod inside the same folder named as "terraform.tfstate.d".
 
-Switching between environment.  cmds are as below --
+# Switching between environment.  cmds are as below --
   terraform workspace select "environmentName"   
   --example--  terraform workspace select dev
      or terraform workspace select stage
 
-To show the present working environment  cmds are below --
+# To show the present working environment  cmds are below --
   --example-- terraform workspace show
 
 
@@ -44,7 +44,7 @@ You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfva
   
  you can use this map() and lookup() method to select one parameter based on the type of environment.
  --example--
-   
+  /*
   variable "instance_type" { 
     description = "value"
     type = map(string)
@@ -60,15 +60,12 @@ You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfva
   source = "./modules/ec2_instance"
   ami = var.ami
   instance_type = lookup(instnace_type, terraform.workspace, t2.micro)
-
-              /* Things in the lookup(inputMap dynamic, key string, __default dynamic) method                 
+  }
+*/
+# Things in the lookup(inputMap dynamic, key string, __default dynamic) method                 
                 instance_type --> The value it has to lookup.   
                 terraform workspace --> If you are in the stage workspace or environment then this value will be resolved in stage, means 
                                          depends on the environment you are in, in the excution it will resolve the "terraform.workspace" into that environment.
                 t2.micro --> It is the default. if there is no environment then it will automatically take default value that you are provided. 
-               */  
-
-  }
-
-
+               
   
