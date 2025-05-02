@@ -42,9 +42,9 @@ You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfva
               ANOTHER METHOD IS THST.
  go to the main.tf  and use "map()" function or method.
   
- you can use this map() and lookup() method to select one parameter based on the type of environment.
+ # You can use this map() and lookup() method to select one parameter based on the type of environment.
  --example--
-  /*
+/*
   variable "instance_type" { 
     description = "value"
     type = map(string)
