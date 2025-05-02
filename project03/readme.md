@@ -56,6 +56,7 @@ You can create a separate tfvars file as stage.tfvars, dev.tfvars, and prod.tfva
         "prod" = "t2xlarge"  # if the environment is prod then select the t2.xlarge instance
        }
   }
+  */
  
 
     module "ec2_instance" {
